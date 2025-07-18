@@ -49,3 +49,26 @@ html, body, #root {
   transform: scale(1.1);
   box-shadow: 0 0 20px #33ff33;
 }
+
+.version-selector {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.login-form input {
+  display: block;
+  margin: 5px 0;
+}
+
+.settings-panel {
+  background: rgba(0,0,0,0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+.log-console {
+  background: #111;
+  color: #0f0;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}

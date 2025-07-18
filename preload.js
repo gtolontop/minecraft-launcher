@@ -1,6 +1,8 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-// Expose a limited API to the renderer
+// Secure bridge exposing allowed IPC methods to the renderer
 contextBridge.exposeInMainWorld('api', {
-  launch: (options) => ipcRenderer.invoke('launch', options),
+  login: (credentials) => ipcRenderer.invoke('login', credentials),
+  downloadVersion: (id) => ipcRenderer.invoke('download', id),
+  launch: (options) => ipcRenderer.invoke('launch', options)
 });
