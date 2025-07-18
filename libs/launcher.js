@@ -1,10 +1,30 @@
-// Placeholder wrapper around minecraft-launcher-core
-// In a real implementation, this would use the library to download and launch the game.
+// Simple wrapper around minecraft-launcher-core
+// NOTE: This is a placeholder implementation.
 
-async function launch(options) {
-  // TODO: integrate minecraft-launcher-core and handle authentication, download and launch
+/**
+ * Login using credentials. In a real implementation this would handle
+ * Mojang or Microsoft authentication.
+ */
+async function login(credentials) {
+  console.log('Logging in with', credentials);
+  return { accessToken: 'dummy' };
+}
+
+/**
+ * Download a specific Minecraft version or modpack.
+ */
+async function downloadVersion(id) {
+  console.log('Downloading version', id);
+  // download logic here
+  return { success: true };
+}
+
+/**
+ * Launch the game with given options such as RAM settings or custom args.
+ */
+async function launchGame(options) {
   console.log('Launching Minecraft with options', options);
   return { success: true };
 }
 
-module.exports = { launch };
+module.exports = { login, downloadVersion, launchGame };
