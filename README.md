@@ -1,37 +1,33 @@
-# Minecraft Launcher (Example)
+# Minecraft Launcher
 
-This repository contains a minimal example of a Minecraft launcher built with Electron and React. It is intended as a starting point for a full implementation.
+Complete Minecraft launcher using Electron and React.
 
 ## Prerequisites
 - Node.js >= 18
 - npm
 
-## Getting Started
-
+## Installation
 ```bash
-# Clone the repository
 git clone <repo-url>
 cd minecraft-launcher
-
-# Install dependencies
 npm install
+```
 
-# Start in development mode
+## Development
+```bash
 npm run dev
 ```
 
-## Packaging
-
+## Build & Package
 ```bash
 npm run build
-npm run package
+npm run dist
 ```
 
-## Testing and Linting
-
+## Tests & Lint
 ```bash
 npm test
 npm run lint
 ```
 
-For more details on the UI design see `design.md`.
+See `design.md` for UI details and `CONTRIBUTING.md` for contribution guidelines.
