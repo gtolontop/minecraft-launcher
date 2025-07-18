@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
-// Create the main window
 function createWindow() {
   const win = new BrowserWindow({
     width: 1280,
@@ -15,23 +15,28 @@ function createWindow() {
   });
 
   win.once('ready-to-show', () => win.show());
-  win.loadFile(path.join(__dirname, 'renderer/public/index.html'));
+  win.loadFile(path.join(__dirname, 'renderer/dist/index.html'));
 }
 
 app.whenReady().then(() => {
   createWindow();
+  autoUpdater.checkForUpdatesAndNotify();
 
-  app.on('activate', function () {
+  app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
-// Example IPC for launching the game
 ipcMain.handle('launch', async (event, opts) => {
   const launcher = require('./libs/launcher');
-  return launcher.launch(opts);
+  return launcher.launchGame(opts);
+});
+
+ipcMain.handle('getVersions', async () => {
+  const launcher = require('./libs/launcher');
+  return launcher.getAvailableVersions();
 });
