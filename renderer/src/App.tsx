@@ -1,12 +1,11 @@
 import React from 'react';
-import PlayButton from './components/PlayButton.jsx';
+import VideoBackground from './components/VideoBackground';
+import PlayButton from './components/PlayButton';
 
 export default function App() {
   return (
     <div className="app-container">
-      <video autoPlay loop muted className="background-video">
-        <source src="background.mp4" type="video/mp4" />
-      </video>
+      <VideoBackground />
       <div className="overlay">
         <PlayButton />
       </div>
